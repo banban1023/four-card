@@ -48,12 +48,15 @@ body {
   max-width: 540px;
 }
 main {
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  gap: 33px;
+  margin-top: 33px;
 }
 main section {
   position: relative;
-  margin: 33px auto 0;
+  margin: 0 auto;
   max-width: 352px;
   height: 250px;
   background-color: hsl(0, 0%, 100%);
@@ -109,4 +112,31 @@ footer .attribution {
 }
 footer .attribution a {
   color: hsl(228, 45%, 44%);
+}
+@media (min-width: 1000px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-rows: auto auto;
+    gap: 33px;
+    justify-content: center;
+    grid-auto-rows: 293px;
+    grid-template-areas: "left  top   right" "left  bottom right";
+  }
+  main section:first-of-type {
+    grid-area: left;
+    margin-top: 142px;
+  }
+  main section:nth-of-type(2) {
+    grid-area: top;
+  }
+  main section:nth-of-type(3) {
+    grid-area: bottom;
+    margin: 0;
+  }
+  main section:nth-of-type(4) {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin-top: 142px;
+  }
 }
